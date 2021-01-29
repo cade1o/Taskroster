@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Xiao task roster system</title>
+  <meta charset="utf-8"/>
+<style>
+
+*{ 
+    margin: 0; 
+    padding: 0;
+    
+}
+
+body {
+    background-image: url('milkywaylake.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.fb-login-button{
+
+}
+
+#myDIV {
+    margin: auto;
+    border: 1px solid black;
+    width: 200px;
+    height: 100px;
+    background-color: coral;
+    color: white;
+
+    position: absolute;
+    right: 100px;
+    bottom: 100px;
+    border: 3px solid #73AD21;
+}
+
+#clouds{
+    padding: 50px 0;
+    background: #c9dbe9;
+    background: linear-gradient(to top, #c9dbe9 0%, #fff 100%);
+}
+
+.cloud {
+    width: 100px; 
+    height: 60px;
+    background: #fff;
+    border-radius: 200px;
+    position: relative;
+}
+
+.cloud:before , .cloud:after {
+    content: '';
+    background: #fff;
+    width: 100px; 
+    height: 80px;
+    position: absolute; 
+    top: -15px; 
+    left: 10px;
+    border-radius: 100px;
+    transform: rotate(30deg);
+}
+
+.cloud:after {
+    width: 120px; 
+    height: 120px;
+    top: -55px; 
+    right: 15px;
+    left: auto;
+}
+
+.x1 {
+    animation: moveclouds 15s linear infinite;
+}
+
+.x2 {
+    left: 200px;
+    transform: scale(0.6);
+    opacity: 0.6;
+    animation: moveclouds 25s linear infinite;
+
+}
+.x3 {
+    left: -250px; top: -200px;
+    transform: scale(0.8);
+    opacity: 0.8;
+    animation: moveclouds 20s linear infinite;
+
+}
+.x4 {
+    left: 470px; 
+    top: -250px;
+    transform: scale(0.75);
+    opacity: 0.75;
+    animation: moveclouds 18s linear infinite;
+
+}
+.x5 {
+    left: 350px; 
+    top: -150px;
+    transform: scale(0.8);
+    opacity: 0.8;
+    animation: moveclouds 20s linear infinite;
+}
+
+@keyframes moveclouds {
+    0% {
+        margin-left: 1000px;
+        
+    }
+    100% {
+        margin-left: -1000px;
+        
+    }
+}
+
+/*@import url(https://fonts.googleapis.com/css?family=Open+Sans);*/
+.btn { 
+    display: inline-block; 
+    *display: inline; *zoom: 1; 
+    padding: 4px 10px 4px; 
+    margin-bottom: 0; 
+    font-size: 13px; 
+    line-height: 18px; 
+    color: #333333; 
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); 
+    vertical-align: middle; 
+    background-color: #f5f5f5; 
+    background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); 
+    background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6); 
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); 
+    background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); 
+    background-image: linear-gradient(to top, #ffffff, #e6e6e6);
+    background-repeat: repeat-x; 
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0); 
+    border-color: #e6e6e6 #e6e6e6 #e6e6e6; 
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); 
+    border: 1px solid #e6e6e6; 
+    -webkit-border-radius: 4px; 
+    -moz-border-radius: 4px;
+    border-radius: 4px; 
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); 
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); 
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); 
+    cursor: pointer; 
+    *margin-left: .3em; 
+    
+}
+.btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] { 
+    background-color: #e6e6e6; 
+    
+}
+.btn-large { 
+    padding: 9px 14px; 
+    font-size: 15px; 
+    line-height: normal; 
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 5px; 
+    
+}
+.btn:hover { 
+    color: #333333; 
+    text-decoration: none; 
+    background-color: #e6e6e6; 
+    background-position: 0 -15px; 
+    -webkit-transition: background-position 0.1s linear; 
+    -moz-transition: background-position 0.1s linear; 
+    -ms-transition: background-position 0.1s linear; 
+    -o-transition: background-position 0.1s linear; 
+    transition: background-position 0.1s linear; 
+    
+}
+.btn-primary, .btn-primary:hover { 
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); 
+    color: #ffffff; 
+    
+}
+.btn-primary.active { 
+    color: rgba(255, 255, 255, 0.75);
+    
+}
+.btn-primary { 
+    background-color: #4a77d4;
+    background-image: -moz-linear-gradient(top, #6eb6de, #4a77d4); 
+    background-image: -ms-linear-gradient(top, #6eb6de, #4a77d4); 
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6eb6de), to(#4a77d4)); 
+    background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4); 
+    background-image: -o-linear-gradient(top, #6eb6de, #4a77d4); 
+    background-image: linear-gradient(to top, #6eb6de, #4a77d4); 
+    background-repeat: repeat-x; 
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr=#6eb6de, endColorstr=#4a77d4, GradientType=0);  
+    border: 1px solid #3762bc; text-shadow: 1px 1px 1px rgba(0,0,0,0.4); 
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5); 
+    
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] { 
+    filter: none; 
+    background-color: #4a77d4; 
+    
+}
+.btn-block { 
+    width: 100%; 
+    display:block; 
+    
+}
+
+* { 
+    -webkit-box-sizing:border-box; 
+    -moz-box-sizing:border-box; 
+    -ms-box-sizing:border-box; 
+    -o-box-sizing:border-box; 
+    box-sizing:border-box; 
+    
+}
+
+html { 
+    width: 100%; 
+    height:100%; 
+    overflow:hidden;
+    
+}
+
+.login {
+	position: absolute;
+	top: 60%;
+	left: 49%;
+	margin: -150px 0 0 -150px;
+	width:300px;
+	height:300px;
+	
+}
+
+.login h1 { 
+    color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); 
+    letter-spacing:1px; text-align:center; 
+    
+}
+
+input {
+	width: 100%;
+	margin-bottom: 10px;
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+	
+}
+
+input:focus { 
+    box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2);
+    
+}
+
+.login{
+    position:absolute;
+    left:200px;
+    top:550px;
+    
+}
+
+.box{
+    position:absolute;
+    left:800px;
+    top:700px;
+    
+}
+
+.box2{
+    position:absolute;
+    left:800px;
+    top:30px;
+    
+}
+
+.p1{
+    position:absolute;
+    left:800px;
+    top:610px;
+
+}
+
+.p2{
+    position:absolute;
+    left:800px;
+    top:640px;
+
+}
+
+.p3{
+    position:absolute;
+    left:800px;
+    top:210px;
+
+}
+
+.p4{
+    position:absolute;
+    left:800px;
+    top:240px;
+
+}
+
+.p5{
+    position:absolute;
+    left:800px;
+    top:110px;
+
+}
+
+.p6{
+    position:absolute;
+    left:800px;
+    top:140px;
+
+}
+
+.btn1{
+    position:absolute;
+    left:1310px;
+    top:720px;
+}
+
+/* Modal Content */
+.modal-content {
+    display: none; /* Hidden by default */
+   /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 600px;
+    top: 0;
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#p10 {
+    display:none;
+}
+
+#d10{
+    position:absolute;
+    left:450px;
+    top:500px;
+}
+</style>
+</head>
+
+<body>
+
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0&appId=2876697969116228" nonce="7BzZ0oab"></script>
+
+ <div id="d10">Manager <input id="d11" type="checkbox"></div>
+
+    <div class="cloud x1"></div>
+    <div class="cloud x2"></div>
+    <div class="cloud x3"></div>
+
+
+    <div class="login">
+	    <h1>Xiao task roster</h1>
+         <form>
+    	    <input type="text" name="u" id="u2" placeholder="Username用户名" required="required" />
+            <input type="password" name="p" id="p2" placeholder="Password密码" required="required" />
+            <button  type="button" onclick="login()" class="btn btn-primary btn-block btn-large">Let me in.</button>
+         </form>
+        <button  onclick="signup()" class="btn btn-primary btn-block btn-large">Sign up</button>
+    </div>
+
+    <div id="posts" class="box2">
+    </div>
+    <hr/>
+
+    <!-- Modal content -->
+    <div id="myModal" class="modal-content">
+        <span class="close">&times;</span>
+        <form>
+            <img src="xiao.jpg" alt="Trulli" width="30" height="30"> <p>Tasks roster</p>
+    	    <div><input type="text" id="u1" name="u"  placeholder="Username" required="required" /></div>
+    	    <div><input type="text" id="n1" name="n1"  placeholder="Surname" required="required" /></div>
+    	    <div><input type="text" id="n2" name="n2"  placeholder="Firstname" required="required" /></div>
+    	    <div><input type="email" id="e1" name="e" placeholder="Email" required="required" /></div>
+            <div><input type="password" id="p1" name="p" placeholder="Password" required="required" /></div>
+            
+            <div>Manager <input type="checkbox" id="p5" ></div>
+            <p id="p10" style="color:darkblue">Success! &#128512; </p>
+            <button type="button" onclick="signup1()" >Sign up</button>
+            <button type="button" onclick="closesignup()" >Go back</button>
+        </form>
+    </div>
+
+    <button onclick="myFunction()">What is the time?</button>
+    <p id="current_time" style="font-family:courier; color:white;" class="time_box"></p>
+    <p id="emoji1" onmouseover="change1()">&#128512;</p>
+    <a href="https://www.google.com" style="font-family:courier; color:white;" class="button">Go to Google</a>
+    <div class="fb-login-button" data-size="small" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="true" data-use-continue-as="false" data-width=""></div>
+    <script>
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    function signup() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    };
+
+    function login(){
+
+    var username = document.getElementById("u2").value  ;
+    var password = document.getElementById("p2").value  ;
+    
+    if ( document.getElementById("d11").checked == false ){
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "/logins", true);
+    xhttp.onreadystatechange = function(){
+    if (this.readyState == 4 && this.status == 200) {
+       window.location.href="staff.html";
+    }
+    };
+
+    // add another check for 400
+    xhttp.setRequestHeader('Content-Type', 'application/json');
+    xhttp.send(JSON.stringify({
+        username: username,
+        password: password,
+    }));
+    }
+    else{
+         var xhttp1 = new XMLHttpRequest();
+    xhttp1.open("POST", "/loginm", true);
+    xhttp1.onreadystatechange = function(){
+    if (this.readyState == 4 && this.status == 200) {
+        window.location.href="manager2.html";
+    }
+    };
+
+    // add another check for 400
+    xhttp1.setRequestHeader('Content-Type', 'application/json');
+    xhttp1.send(JSON.stringify({
+        username: username,
+        password: password,
+    }));
+       
+    }
+    }
+
+    function myFunction() {
+        const x = new Date();
+        document.getElementsByClassName('time_box')[0].innerText = x;
+    }
+
+    function signup1() {
+        var u1 = document.getElementById("u1").value  ;
+        var n1 = document.getElementById("n1").value  ;
+        var n2 = document.getElementById("n2").value  ;
+        var p = document.getElementById("p1").value  ;
+        var e = document.getElementById("e1").value  ;
+        var success = document.getElementById("p10")  ;
+        
+        var manager = document.getElementById("p5").checked ;
+        
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "/signup", true);
+        xhttp.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("aaa");
+                success.style.display = "block" ;
+            }
+    };
+    xhttp.setRequestHeader('Content-Type', 'application/json');
+    xhttp.send(JSON.stringify({
+        username: u1,
+        firstname: n2,
+        surname: n1,
+        password:p,
+        email:e,
+        checked:manager
+    }));
+        
+    }
+
+    var a = 10 ;
+    var c = Math.floor(Math.random() * 10);
+    a = a+c ;
+    
+    function change1() {
+        var e1 = document.getElementById("emoji1").value  ;
+        a++ ;
+        var b = a.toString();
+        document.getElementById("emoji1").innerHTML = "&#1285" + b + ";";   //user can not inject here
+    }
+
+    function closesignup() {
+        modal.style.display = "none";
+
+    }
+
+    function post(){
+
+        var color="yellow";
+        var x=document.getElementsByTagName("TEXTAREA")[0].value;
+        var aa = document.createElement("P");
+        aa.innerText= x ;
+        aa.className+="post-time";
+        aa.style.color=color;
+        document.getElementById("posts").appendChild(aa);
+    
+        var bb = document.createElement("P");
+        bb.style.color=color;
+        bb.style.fontWeight=styl;
+        bb.style.fontStyle=style;
+        bb.innerText=x;
+        bb.className+="post-content";
+        document.getElementById("posts").appendChild(bb);
+
+    }
+
+    function send(){
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+               res.send();
+            }
+        };
+        xhttp.open("POST", "/send", true);
+        xhttp.setRequestHeader("Content-type", "application/json");
+        xhttp.send(JSON.stringify({ text: document.getElementById('posts').value}));
+    }
+
+    //facebook api
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '{2876697969116228}',
+            cookie     : true,
+            xfbml      : true,
+            version    : '{7.0}'
+        });
+
+    FB.AppEvents.logPageView();
+
+    FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+
+    if (response.status == "connected")
+        window.location.href="staff.html";
+    });
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+            
+        }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+</script>
+
+</body>
+</html>
